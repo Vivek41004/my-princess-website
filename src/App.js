@@ -266,6 +266,57 @@ const Letter = styled.div`
   }
 `;
 
+// New styled component for the Shiv Side section
+const ShivSectionContainer = styled(AnimatedSection)`
+  background: linear-gradient(135deg, #e0f2f7, #d0e0f0); /* Soft divine aura */
+  color: #2c3e50; /* Darker text for contrast */
+  text-align: center;
+  padding: 3rem 1.5rem;
+  box-shadow: 0 8px 30px rgba(100, 150, 200, 0.2);
+
+  h2 {
+    color: #4a69bd; /* Blueish tone for Shiv */
+    text-shadow: 0 0 15px rgba(74, 105, 189, 0.5);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #34495e;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin: 2rem auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0 0 20px rgba(74, 105, 189, 0.7)); /* Blue glow for image */
+  }
+`;
+
+const ShivButton = styled(Button)`
+  background: linear-gradient(90deg, #6a82fb, #fc5c7d); /* Stronger gradient for the button */
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 5px rgba(106, 130, 251, 0.5);
+  filter: drop-shadow(0 0 15px rgba(106, 130, 251, 0.7));
+  &:hover {
+    box-shadow: 0 0 35px 8px rgba(106, 130, 251, 0.7);
+    transform: translateY(-3px);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 0 10px 3px rgba(106, 130, 251, 0.5);
+  }
+`;
+
+
 function FadeInSection({ children, bg, delay = 0.02 }) {
   // Handles reveal-on-scroll for each AnimatedSection
   const ref = useRef();
@@ -398,24 +449,24 @@ export default function App() {
       </InteractiveSectionContainer>
 
       {/* Welcome Section */}
-      <FadeInSection bg={pastelCream} delay={0.07}>
+      <FadeInSection bg={pastelCream} delay={0.10}>
         <Heading>For My Princess 👑</Heading>
         <Subline>
-          Jitni duniya dangerous ho sakti hai,  utna hi zyada main tumhare liye safe jagah hoon.
+          Jitni duniya dangerous ho sakti hai... utna hi zyada main tumhare liye safe jagah hoon.
         </Subline>
       </FadeInSection>
 
       {/* Protection Section */}
-      <FadeInSection bg={pastelLavender} delay={0.11}>
+      <FadeInSection bg={pastelLavender} delay={0.15}>
         <Heading>You’re Always Protected 🛡</Heading>
         <div>
           <div style={{
             marginBottom: 14,
             fontSize: "1.07rem"
           }}>
-            Tum sirf meri bestfriend nahi ho, meri zimmedari ho.<br />
+            Tum sirf meri bestfriend nahi ho... meri zimmedari ho.<br />
             Jab tak main hoon, tum tak koi takleef nahi pahunch sakti.<br />
-            I’ll always be quietly watching over you  just like your shield.
+            I’ll always be quietly watching over you – just like your shield.
           </div>
           <UmbrellaAnim style={{position: "relative"}}>
             <motion.div
@@ -456,7 +507,7 @@ export default function App() {
       </FadeInSection>
 
       {/* Letter Section */}
-      <FadeInSection bg={pastelCream} delay={0.16}>
+      <FadeInSection bg={pastelCream} delay={0.20}>
         <Heading as="h3" style={{fontSize: "1.19rem"}}>A Soft Letter for You ♥</Heading>
         <Letter>
           {letter.map((line, i) => (
@@ -474,7 +525,7 @@ export default function App() {
       </FadeInSection>
 
       {/* Prayers Section */}
-      <FadeInSection bg={pastelLavender} delay={0.23}>
+      <FadeInSection bg={pastelLavender} delay={0.25}>
         <Heading>My Prayers for You 🌙</Heading>
         <Subline>
           Har Prayer main sirf ek dua karta hoon – <br />
@@ -494,7 +545,7 @@ export default function App() {
       </FadeInSection>
 
       {/* Surprise Section */}
-      <FadeInSection bg={pastelCream} delay={0.28}>
+      <FadeInSection bg={pastelCream} delay={0.30}>
         <Heading as="h4">One Little Surprise!</Heading>
         <Button {...buttonAnim} onClick={() => setSurprise(true)}>Click for a surprise 🍫</Button>
         {surprise &&
@@ -515,7 +566,7 @@ export default function App() {
       <FadeInSection bg={pastelLavender} delay={0.35}>
         <Heading as="h4">World Tour Dream 🌏</Heading>
         <div style={{margin:"13px 0 5px 0", fontSize:"1.08rem"}}>
-          Shaadi zaroori nahi, <br />par tumhare saath duniya ghoomna zaroori hai 💫
+          Shaadi zaroori nahi...<br />par tumhare saath duniya ghoomna zaroori hai 💫
         </div>
         <WorldMap
           animate={{
@@ -553,8 +604,40 @@ export default function App() {
         </WorldMap>
       </FadeInSection>
 
+      {/* Shiv Side Section */}
+      <ShivSectionContainer bg={null} delay={0.40}> {/* Added delay for animation */}
+        <h2>My Shiv Side 🔱</h2>
+        <p>
+          Aapne ab tak meri sirf shaant side dekhi hai <br />
+          Lekin main Shiv ka bhakt hoon <br />
+          Jab meri Parvati ji (tum) pe koi bhi takleef aayegi <br />
+          Toh main puri duniya se lad jaunga <br /><br />
+
+          Mujhe bas tumhara saath chahiye <br />
+          Jab tum mere saath ho, toh mujhe kisi bhi andhere se darr nahi <br /><br />
+
+          Jab zarurat padegi, tum mera vikraal roop bhi dekhogi <br />
+          Par us roop mein bhi, main sirf tumhare liye hoon <br /><br />
+
+          Main vaada karta hoon <br />
+          Ki main hamesha Shiv ji jaise tumhe protect karunga <br />
+          Tumhare saath rahunga <br />
+          Har janam mein sirf tumhara Shiv banunga <br />
+          Aur tum meri Parvati rahegi
+        </p>
+        {/* Placeholder for Shiv-Parvati Image */}
+        <img
+          src="/shiv_parvati_protector.jpeg" // Updated image source
+          alt="Lord Shiv and Parvati in a protective form"
+          onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x250/a0c4ff/ffffff?text=Image+Not+Found'; }}
+        />
+        <ShivButton {...buttonAnim}>
+          Tum bas mere saath rehna — baaki sab mujh pe chhodo.
+        </ShivButton>
+      </ShivSectionContainer>
+
       {/* Footer – Ending */}
-      <FadeInSection bg={pastelCream} delay={0.46}>
+      <FadeInSection bg={pastelCream} delay={0.45}>
         <Heading as="h4" style={{color: "#a81774", fontSize:"1.4rem", textShadow: softGlow}}>
           One love. One person. <br />Always you.
         </Heading>
